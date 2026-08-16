@@ -1,34 +1,16 @@
 from network.network import Network
 from algorithms.dijkstra import dijkstra
 from algorithms.q_learning import q_learning, get_q_path, get_q_path_cost
-
-
-def create_network():
-    network = Network()
-
-    for node in ["A", "B", "C", "D", "E", "F"]:
-        network.add_node(node)
-
-    network.add_edge("A", "B", weight=4)
-    network.add_edge("A", "C", weight=2)
-
-    network.add_edge("B", "D", weight=3)
-    network.add_edge("C", "D", weight=1)
-
-    network.add_edge("B", "E", weight=5)
-    network.add_edge("D", "E", weight=2)
-
-    network.add_edge("D", "F", weight=4)
-    network.add_edge("E", "F", weight=1)
-
-    return network
+from network.network_generator import create_network
 
 
 def main():
-    network = create_network()
+    network = create_network(
+        10, 0.25, 1, 8,3
+    )
 
-    start = "A"
-    goal = "F"
+    start = "R1"
+    goal = "R9"
 
     # --------------------
     # Dijkstra

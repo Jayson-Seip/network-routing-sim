@@ -11,7 +11,7 @@ class Network:
         self.graph.add_edge(node_from, node_to, weight=weight)
 
     def get_nodes(self):
-        return self.graph.nodes()
+        return self.graph.nodes
 
     def get_neighbors(self, node):
         return self.graph.neighbors(node)
@@ -24,3 +24,6 @@ class Network:
         for node_from, node_to in zip(path, path[1:]):
             cost += self.get_edge_cost(node_from, node_to)
         return cost
+
+    def has_edge(self, node_from, node_to):
+        return self.graph.has_edge(node_from, node_to)
